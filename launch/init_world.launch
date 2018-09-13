@@ -1,0 +1,9 @@
+<!-- -*- xml -*- -->
+<launch>
+    <node name="stage" pkg="stage_ros" type="stageros" required="true" ns="robot" args="$(find uml_nav)/share/willow-erratic.world" />
+    <!-- <node name="referee" pkg="uml_race" type="referee.py" required="true" ns="robot" output="screen" /> -->
+    <node name="hokuyo_tf" pkg="tf" type="static_transform_publisher" args="0.20 0 0.29 0 0 0 base_link urg_link 10" />
+    <!-- <node name="hokuyo_rear_tf" pkg="tf" type="static_transform_publisher" args="-0.23 0 0.29 3.13 0 0 base_link urg_rear_link 10 " /> -->
+    <!-- <node name="kinect_tf" pkg="tf" type="static_transform_publisher" args="0.20 0 0.40 0 0 0 base_link pan_link 10" /> -->
+
+</launch>

@@ -1,0 +1,7 @@
+<!-- -*- xml -*- -->
+<launch>
+    <include file="$(find uml_nav)/launch/map_server.launch"/>
+    <include file="$(find uml_nav)/launch/init_world.launch"/>
+    <include file="$(find uml_nav)/launch/amcl.launch"/>
+    <include file="$(find uml_nav)/launch/move_base.launch"/>
+</launch>
