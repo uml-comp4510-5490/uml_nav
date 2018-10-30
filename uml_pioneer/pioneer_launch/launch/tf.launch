@@ -1,0 +1,7 @@
+<!-- -*- mode: XML -*- -->
+
+<launch>
+    <node name="hokuyo_tf" pkg="tf" type="static_transform_publisher" args="0.20 0 0.29 0 0 0 base_link hokuyo_front_link 10" />
+    <node name="hokuyo_rear_tf" pkg="tf" type="static_transform_publisher" args="-0.23 0 0.29 3.13 0 0 base_link hokuyo_rear_link 10 " />
+    <!-- <node pkg="tf" type="static_transform_publisher" name="odom_to_map" args="0 0 0 0 0 0 /map /odom 100" /> -->
+</launch>

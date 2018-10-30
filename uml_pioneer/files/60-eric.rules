@@ -1,0 +1,11 @@
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", MODE="666", SYMLINK+="Dynamixel"
+
+KERNEL=="ttyUSB*", SUBSYSTEM=="tty", ATTRS{idVendor}=="067b", ATTRS{idProduct}=="2303", MODE="666", SYMLINK+="Aria"
+
+#R1 Front H1009455 
+#R1 Back  H1008744
+
+#R3 Front H1009492
+#R3 Back  H1008968
+
+KERNEL=="ttyACM[0-9]*", ACTION=="add", ATTRS{idVendor}=="15d1", MODE="0666", GROUP="dialout", PROGRAM="/home/csrobot/rlucid/src/back/backend/hokuyo_namer.sh %N", SYMLINK+="%c"

@@ -1,0 +1,15 @@
+<launch>
+    <arg name="twolasers" default="true"/>
+    <param name ="/use_sim_time" value = "false"/>
+
+    <include file="$(find pioneer_launch)/launch/rosaria.launch" >
+      <arg name="twolasers" value="$(arg twolasers)" />
+    </include>
+
+    <include file="$(find pioneer_launch)/launch/servos.launch" />
+
+    <include file="$(find pioneer_launch)/launch/openni.launch"/>
+
+    <include file="$(find pioneer_launch)/launch/amcl.launch" />
+
+</launch>

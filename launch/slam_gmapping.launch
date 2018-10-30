@@ -1,7 +1,0 @@
-<!-- -*- xml -*- -->
-<launch>
-    <node name="slam_gmapping" pkg="gmapping" type="slam_gmapping" required="true" ns="robot" output="screen">
-        <param name="scan" value="/robot/base_scan" />
-    </node>
-
-</launch>

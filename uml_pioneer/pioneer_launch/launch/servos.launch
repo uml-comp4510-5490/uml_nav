@@ -1,0 +1,16 @@
+<launch>
+  <arg name="namespace" default="$(optenv NAMESPACE)"/>
+    <param name="~tf_prefix" value="$(arg namespace)" />
+
+    <include file="$(find pioneer_launch)/launch/controller_manager.launch" />
+    <include file="$(find pioneer_launch)/launch/controller_spawner.launch" />
+
+    <include file="$(find ptz_velocity_boss)/launch/ptz_velocity_boss.launch" />
+
+    <node name="DynamixelTransform" pkg="dynamixel_tf" type="dynamixel_tf" output="screen" ns="$(arg namespace)/" >
+        <param name="ptfns" value="$(arg namespace)" />
+        <param name="p_offset" value="0.05" /> 
+        <param name="r_offset" value="0.0" /> 
+        <rosparam file="$(find files)/$(env ROBOT_NAME)/servos.yaml" command="load" />
+    </node>
+</launch>

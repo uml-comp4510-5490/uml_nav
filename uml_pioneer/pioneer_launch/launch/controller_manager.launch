@@ -1,0 +1,23 @@
+<!-- -*- mode: XML -*- -->
+
+<launch>
+  <arg name="namespace" default="$(optenv NAMESPACE)"/>
+
+    <node name="dynamixel_manager" pkg="dynamixel_controllers" type="controller_manager.py" required="true" output="screen"> <!-- ns="$(arg namespace)/" > -->
+        <rosparam>
+            namespace: dxl_manager
+            serial_ports:
+                pan_tilt_port:
+                    port_name: "/dev/ttyUSB0" <!-- old: /dev/Dynamixel -->
+                    baud_rate: 57600
+                    min_motor_id: 1
+                    max_motor_id: 2
+                    update_rate: 10
+        </rosparam>
+        <remap from="/pan_controller/state" to="$(arg namespace)/pan_controller/state" />
+        <remap from="/pan_controller/command" to="$(arg namespace)/pan_controller/command" />
+        <remap from="/tilt_controller/state" to="$(arg namespace)/tilt_controller/state" />
+        <remap from="/tilt_controller/command" to="$(arg namespace)/tilt_controller/command" />
+    </node>
+</launch>
+

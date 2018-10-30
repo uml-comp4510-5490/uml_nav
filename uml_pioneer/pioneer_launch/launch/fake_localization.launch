@@ -1,0 +1,17 @@
+<launch>
+  <group>
+    <node pkg="fake_localization" type="fake_localization" name="fake_localization" respawn="true" respawn_delay="1" output="screen">
+      <rosparam>
+        base_frame_id: base_link
+        global_frame_id: map
+        odom_frame_id: odom
+        initial_pose_a: 1.5708
+        initial_pose_x: 5.0
+        initial_pose_y: 3.0
+        initial_cov_xx: 0.001
+        initial_cov_yy: 0.001
+        initial_cov_aa: 0.01
+      </rosparam>
+    </node>
+  </group>
+</launch>

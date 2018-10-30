@@ -1,0 +1,20 @@
+<launch>
+  <arg name="namespace" default="$(optenv NAMESPACE)"/>
+
+    <!-- Load controller configuration to parameter server -->
+    <rosparam file="$(find files)/$(env ROBOT_NAME)/dynamixel_joint_controllers.yaml" command="load"/>
+
+    <!-- start specified joint controllers -->
+    <node name="dynamixel_controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"
+          args="--manager=dxl_manager
+                --port=pan_tilt_port
+                --type=simple
+                pan_controller
+                tilt_controller"
+          output="screen" > <!-- ns="$(arg namespace)/" > -->
+        <remap from="/pan_controller/state" to="$(arg namespace)/pan_controller/state" />
+        <remap from="/pan_controller/command" to="$(arg namespace)/pan_controller/command" />
+        <remap from="/tilt_controller/state" to="$(arg namespace)/tilt_controller/state" />
+        <remap from="/tilt_controller/command" to="$(arg namespace)/tilt_controller/command" />
+    </node>
+</launch>

@@ -1,0 +1,46 @@
+<!-- -*- mode: XML -*- -->
+
+<launch>
+
+  <!-- the batteries -->
+  <node pkg="laptop_battery_monitor" type="laptop_battery.py" name="laptop_battery" output="screen" />
+
+  <arg name="twolasers" default="false" />
+
+ <node name="rosaria" pkg="rosaria" type="RosAria" output="screen" >
+     <param name="spam" type="bool" value="true" />
+     <param name="port" type="string" value="/dev/ttyUSB1" /> <!-- prev: /dev/ttyUSB0 old: /dev/Aria -->
+     <param name="SonarReassignmentSurgery" type="bool" value="true" />
+     <param name="rot_decel" value="5.23598" />
+     <param name="trans_decel" value="1.0" />
+     <param name="trans_vel_max" value="0.5" />
+     <param name="rot_vel_max" value="3.14" />
+     <remap from="rosaria/pose" to ="/odom" />
+     <remap from="rosaria/cmd_vel" to="/cmd_vel" />
+  </node>
+
+<node name="hokuyo" pkg="urg_node" type="urg_node" respawn="false" output="screen" >
+    <param name="calibrate_time" type="bool" value="true"/>
+    <param name="port" type="string" value="/dev/ttyACM0"/> <!-- old: dev/Front -->
+    <param name="intensity" type="bool" value="false"/>
+    <param name="frame_id" value="urg_link"/>
+    <param name="max_ang" value="2.08"/>
+    <param name="min_ang" value="-2.08"/>
+    <remap from="/scan" to="/direct/scan"/>
+</node>
+<!--
+<node name="hokuyo_rear" pkg="hokuyo_node" type="hokuyo_node" respawn="false" output="screen" if="$(arg twolasers)">
+    <param name="calibrate_time" type="bool" value="true"/>
+    <param name="port" type="string" value="/dev/ttyACM1"/> <??? old: dev/Back ??>
+    <param name="intensity" type="bool" value="false"/>
+    <param name="frame_id" value="urg_rear_link"/>
+    <param name="max_ang" value="2.08"/>
+    <param name="min_ang" value="-2.08"/>
+    <remap from="/scan" to="/direct/scan_rear"/>
+</node>
+-->
+<node name="hokuyo_tf" pkg="tf" type="static_transform_publisher" args="0.20 0 0.29 0 0 0 base_link urg_link 10" />
+<!--<node name="hokuyo_rear_tf" pkg="tf" type="static_transform_publisher" args="-0.23 0 0.29 3.13 0 0 base_link urg_rear_link 10 " /> -->
+<node name="kinect_tf" pkg="tf" type="static_transform_publisher" args="0.20 0 0.40 0 0 0 base_link pan_link 10" />
+
+</launch>
