@@ -1,3 +1,5 @@
+<!-- XML -->
+
 <launch>
   <group>
   <!--
@@ -15,12 +17,12 @@
         first_map_only: false
         global_frame_id: map
         gui_publish_rate: -1.0
-        initial_pose_a: 1.5708
-        initial_pose_x: 6.985
-        initial_pose_y: 0.748
-        initial_cov_xx: 0.001
-        initial_cov_yy: 0.001
-        initial_cov_aa: 0.01
+        initial_pose_a:  <!-- TODO: set me -->
+        initial_pose_x:  <!-- TODO: set me -->
+        initial_pose_y:  <!-- TODO: set me -->
+        initial_cov_xx:  <!-- TODO: set me -->
+        initial_cov_yy:  <!-- TODO: set me -->
+        initial_cov_aa:  <!-- TODO: set me -->
         kld_err: 0.01
         kld_z: 0.99
         laser_lambda_short: 0.1

@@ -1,17 +1,17 @@
 local_costmap:
-  global_frame: map
-  robot_base_frame: base_link
-  update_frequency: 5.0
-  publish_frequency: 2.0
-  map_type: costmap
-  static_map: false
-  rolling_window: true
-  width: 5
-  height: 5
-  map_type: costmap
-  static_map: false
-  rolling_window: true
-  width: 11.48
-  height: 10.82
-  resolution: 0.01
-  max_obstacle_height: 0.43
+  global_frame: 
+  robot_base_frame: 
+  update_frequency: 
+  publish_frequency: 
+  map_type: 
+  static_map: 
+  rolling_window: 
+  width:
+  height: 
+  map_type: 
+  static_map: 
+  rolling_window: 
+  width: 
+  height: 
+  resolution: 
+  max_obstacle_height: 

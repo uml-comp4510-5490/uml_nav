@@ -1,16 +1,16 @@
-obstacle_range: 5.0
-raytrace_range: 6.0
-footprint: [[0.31, 0.19], [-0.31, 0.19], [-0.31, -0.19], [0.31, -0.19]]
-inflation_radius: 0.55
-min_obstacle_height: 0.2
-max_obstacle_height: 0.43
+obstacle_range: 
+raytrace_range: 
+footprint: 
+inflation_radius: 
+min_obstacle_height: 
+max_obstacle_height: 
 
-observation_sources: point_cloud_sensor
+observation_sources: 
 
-#laser_scan_sensor: {sensor_frame: urg_link, data_type: LaserScan, topic: direct/scan, marking: true, clearing: true, observation_persistence: 0.0, raytrace_range: 6.0 }
+#laser_scan_sensor: 
 
-#laser_scan_rear_sensor: {sensor_frame: urg_rear_link, data_type: LaserScan, topic: direct/scan_rear, marking: true, clearing: true, observation_persistence: 0.0, raytrace_range: 6.0 }
+#laser_scan_rear_sensor: 
 
-#laser_scan_ir_sensor: {sensor_frame: urg_link_ir, data_type: LaserScan, topic: direct/scan_ir, marking: true, clearing: true, observation_persistence: 0.0, raytrace_range: 6.0 }
+#laser_scan_ir_sensor: 
 
-point_cloud_sensor: {sensor_frame: camera_rgb_frame, data_type: PointCloud2, topic: camera/depth_registered_fast/points, marking: true, clearing: true, observation_persistence: 0.0, raytrace_range: 6.0, min_obstacle_height: 0.2, max_obstacle_height: 2.0 }
+point_cloud_sensor: 

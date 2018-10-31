@@ -1,2 +1,2 @@
 GlobalPlanner:
-    use_dijkstra: false                           # Use A*
+    use_dijkstra:                            # Use A*
